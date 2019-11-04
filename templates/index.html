@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div>Gold: {{session["total_points"]}} {{session["counter"]}}</div>
+    <div>
+        <div class="prop"><form action="/process_money" method="POST">Farm<br><input type="hidden" value="farm" name="location"><input type="submit" value="Find Gold!"></form></div>
+        <div class="prop"><form action="/process_money" method="POST">Cave<br><input type="hidden" value="cave" name="location"><input type="submit" value="Find Gold!"></form></div>
+        <div class="prop"><form action="/process_money" method="POST">House<br><input type="hidden" value="house" name="location"><input type="submit" value="Find Gold!"></form></div>
+        <div class="prop"><form action="/process_money" method="POST">Casino<br><input type="hidden" value="casino" name="location"><input type="submit" value="Find Gold!"></form></div>
+        <form action="/reset" method="POST">
+        <input type="submit" value="reset">
+        </form>
+    </div>
+    <div>
+        <h1>Activities</h1>
+        <div class="overflow-auto">{{session["activities"]|safe}}</div>
+    </div>
+
+
+</body>
+</html>
