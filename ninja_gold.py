@@ -48,10 +48,11 @@ def process_money():
     session.pop('ninja_gold')
     return redirect("/")
 
-@app.route('/reset', methods = ['Post'])
+@app.route('/reset', methods = ['POST'])
 def reset():
     session.clear()
     return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
+
